@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        @font-face {
+        font-family: AirePro;
+        src: url(fonts/AireBoldPro.ttf);
+        }
+        body{
+            background-color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Выравнивание по горизонтали */
+             /* Для выравнивания элементов на всю высоту окна */
+            font-family: 'Montserrat', sans-serif;
+            color: #1D1C1A;
+        }
+        .companyname{
+            margin-top: 3vh;
+            font-family: "Montserrat";
+            font-size: 8vw;
+            color: #1D1C1A;
+            justify-content: center;
+            display: flex;
+        }
+        .welcometxt{
+            margin-top: 5vh;
+            font-size: 6vw;
+            text-align: center;
+            width: 65vw;
+            
+        }
+        .content{
+            
+            z-index: 950 ;
+            position: absolute;
+            top: 18vh;
+            justify-content: center;
+            align-items: center;
+            width: 89.7vw;
+   
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Montserrat';
+        }
+        input{
+            background-color: #ffffff00;
+            border: #7B8F74 solid 0.25vw;
+            border-radius: 50vw;
+            font-size: 2vh;
+            font-family: "Montserrat";
+            font-weight: 300;
+            color: #67645E;
+            width: 78.9vw;
+            height: 4vh;
+            padding-left: 5vw;
+            padding-right: 5vw;
+        }
+        input::placeholder{
+            padding-left: 0vw;
+            border: none;
+        }
+        input:focus{
+            outline: none;
+            
+        }
+        .input_place{
+            margin-top: 2.5vh;
+            display:block;
+            justify-content: center;
+        }    
+        .input_place_description{
+            width: 100%;
+            padding: 4vw;
+            border-radius: 2vh;
+            margin-top: 2.5vh;
+            height: 20vh;
+            display:block;
+            font-family: Montserrat;
+            font-size: 2vh;
+        }  
+        textarea:focus{
+            outline: none;
+        } 
+        textarea::placeholder{
+            padding: 0.75vw;
+            border: none;
+        }
+        textarea{
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .lessonsmoreconfirm{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 89.7vw;
+            
+            background-color: #7B8F74;
+            color: #ffffff;
+            border-radius: 50vw;
+            align-items: center;
+            border: none;
+            font-size: 5vw;
+            margin-top: 1.5vh;
+            font-family: Montserrat;
+        }
+        
+
+       
+
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 13vh;
+            background-color: #fff;
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+        }
+        .mainimg{
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        } 
+        .describetxt{
+            margin-left: 5vw;
+            margin-top: 2vh;
+            margin-bottom: -1vh;
+            font-size: 2vh;
+        } 
+        .back_btn{
+            position: absolute;
+            z-index: 1000;
+            margin-top: 5vh;
+            left: 7.5vw;
+        }  
+        .checkbox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2vh;
+        margin-left: 0;
+        }
+        input[type=checkbox]:checked {
+            background-color:#7B8F74; 
+            color: #7B8F74;
+            border: #7B8F74;
+        }       
+        
+    </style>
+    
+</head>
+
+<body>
+    <div class="welcometxt">
+        <div class="companyname">Изменение данных</div></div>
+    <div class="back_btn" onclick="location.href='#'">
+        <img src="images/back_btn.svg" alt="back">
+    </div>
+    <div class="content">
+        <form id="myForm">
+            
+            
+            
+            <div class="describetxt">Банковские данные</div>
+            <div class="input_place">
+                <input  type="number"   placeholder="БИК(9 цифр) " maxlength="9" />
+            </div>
+            <div class="input_place">
+                <input  type="text"   placeholder="Название банка " />
+            </div>
+            <div class="input_place">
+                <input  type="number"   placeholder="Расчетный счет(20 цифр) "maxlength="20" />
+            </div>
+
+            <div class="describetxt">Система налогообложения</div>
+            <div class="checkbox">
+                <input type="checkbox" id="prostaya" name="taxSystem">
+                <label for="prostaya">Упрощенная</label>
+
+                <input type="checkbox" id="obshaya" name="taxSystem">
+                <label for="obshaya">Общая</label>
+            </div>
+            <input type="submit" class="lessonsmoreconfirm" value="Сохранить">
+        </form>
+       
+        <br>
+        <br>
+        <br>
+        <br>
+      
+        
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $('input[type="checkbox"][name="taxSystem"]').on('change', function() {
+            $('input[type="checkbox"][name="taxSystem"]').not(this).prop('checked', false);
+        });
+    });
+
+    function checkForm() {
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].type === 'text' && inputs[i].value === '') {
+                alert('Пожалуйста заполните все поля!');
+                return false;
+            }
+        }
+        return true;
+    }
+    document.getElementById('myForm').onsubmit = checkForm;
+</script>
+    
+</html>
+<!-- <label>
+    <img src="/build/assets/user-77605e7f.png">
+    <input class="load-input" type="file" wire:model.live="avatar">
+</label> -->

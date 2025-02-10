@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        body{
+
+            background-color: #ffffff;
+            margin: 0px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .btnpanel{
+            position: relative;
+            height: 18vh;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            background: rgb(255,255,255);
+            background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+
+        }
+        .btnsline{
+            z-index: 999;
+            margin-top: 6vh;
+            display: flex;
+            width: 89.7vw;
+        }
+        .rightbtns{
+            z-index: 999;
+            right: 0;
+            display: flex;
+            margin-left: auto;
+            gap: 3.5vw;
+        }
+        .back_btn{
+            z-index: 999;
+            height: 5vh; 
+        }
+        .lessonsmoreimg{
+            margin-top: -14vh;
+            z-index: 1;
+        }
+
+        .content{
+            z-index: 950 ;
+            position: absolute;
+            margin-top: 2vh;
+            justify-content: center;
+            align-items: center;
+            width: 89.7vw;
+            height: 80vh;
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Montserrat';
+        
+        }
+        .lessonsmore{ 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .lessonsmorename{
+            display: flex;
+            font-size: 6.5vw;
+            font-weight: 300;
+            width: 70vw;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .lessonsmorestudio{
+            justify-content: center;
+            display: flex;
+            font-size: 3vw;
+            align-items: center;
+            margin-top: 0.5vh;
+        }
+        
+        .lessonsmoreinfo{
+            display: inline-flex;
+            margin-top: 2vh;
+
+        }
+
+        .lessonsmoresuggestion{
+            z-index: 2;
+            align-items: center;
+            display: flex;
+            height: 8vh;
+            margin-top: 1vh;
+            background-color: #fff;
+            border-radius: 5vw;
+            border: #1D1C1A solid 0.4vw;
+            font-size: 5vw;
+            
+        }
+        .lessonsmoresuggestionimg{
+            background-size: cover;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            z-index: 1;
+            margin: 0; 
+            border-radius: 4.5vw;
+            display: block;
+            height: 8vh;
+            width: 18vw;
+            background-color: #1D1C1A;
+        }
+        .lessonsmoresuggestiontext{
+            
+            position: absolute;
+            left: 25vw;
+
+        }
+        .lessonsmoresuggestioncost{
+            position: absolute;
+            right: 3vw;
+
+        }
+        img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .lessonsmoresuggestionstudio{
+            margin: 1vh 2.5vw;
+            padding: 0;
+            font-size: 5vw;
+            color: #1D1C1A;   
+        }
+
+        
+        .lessonsmoreconfirm{
+            position: fixed;
+            display: flex;
+            bottom: 15vh;
+            width: 89.7vw;
+            z-index: 999;
+            padding: 2vw 0vh;
+            align-items: center;
+            text-align: center;
+            background-color: #D9674F;
+            color: #ffffff;
+            border-radius: 50vw;
+            border: none;
+            font-size: 5vw;
+            font-family: Montserrat;
+        }
+        .lessonsmoreconfirmtxt{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            font-weight: 400;
+            margin-left: 5vw;
+
+        }
+        .lessonsmoreconfirmpoints{
+            display: flex;
+            position: absolute;
+            align-items: center;
+            font-weight: 400;
+            right: 5vw;
+
+        }
+
+        
+        .container {
+            position: relative; /* Устанавливаем контейнер как относительный для позиционирования */
+            display: flex;
+            justify-content: center; /* Контейнер занимает всю высоту */
+        }
+        .containerlessonsmoreconfirm{
+            position: fixed;
+            display: flex;
+            bottom: 15vh;
+            width: 90vw;
+            z-index: 999;
+            padding: 2.5vw 0vh;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            background-color: #D9674F;
+            color: #ffffff;
+            border-radius: 50vw;
+            border: none;
+            font-size: 5vw;
+            font-family: Montserrat;
+        }
+        .containerlessonsmoreconfirmtxt{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            font-weight: 400;
+        }
+        .containerlessonsmoreconfirmpoints{
+            display: flex;
+            position: absolute;
+            align-items: center;
+            font-weight: 400;
+            right: 5vw;
+        }
+        
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 13vh;
+            background-color: #fff;
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+        }
+        .mainimg{
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        }
+
+
+
+        .aboutlesson{
+            margin-top: 1vh;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            max-width: 87.9vw;
+            margin-right: 0px;
+            margin-left: 0px;
+            margin-bottom: 3vh;
+            justify-content: center;
+            }
+
+            
+            
+            
+            .leftplace{
+                flex-direction: column;
+                display: flex;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 50%;
+                color: #7B8F74;
+                align-items: center;
+                justify-content: center;
+                font-size: 2.2vh;
+                
+                }    
+            
+            /* 2/3 от ширины контейнера */
+            .rightplace {
+                flex-direction: column;
+                display: flex;
+                justify-content: center;
+                -ms-flex: 0 0 50%;
+                flex: 0 0 50%;
+                max-width: 50%;
+                font-size: 2.2vh;
+                align-items: center;
+            }
+
+
+
+
+
+            .modal {
+                display: none;
+                position: fixed;
+                font-family: Montserrat;
+                z-index: 999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0,0.4);
+            }
+            .modal-content {
+                background-color: #fff;
+                margin-top: 60vh;
+                padding: 20px;
+                border: 1px solid #888;
+                height: 35vh;
+                
+            }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+    </style>
+    
+</head>
+
+<body>
+    <div class="btnpanel">
+        <div class="btnsline">
+            <div class="back_btn" onclick="location.href='#'">
+                <img src="images/back_btn.svg" alt="back" style="height: 3.6vh;">
+            </div>
+
+            <div class="rightbtns">
+                <div class="rigth_btn" onclick="toggleImage(this)">
+                    <img src="images/favoritefalse.png" alt="back" style="height: 3.6vh;" id="favoriteImage">
+                </div>
+                <div class="right_btn" onclick="location.href='#'" id="shareBtn" >
+                    <img src="images/share.png" alt="back" style="height: 3.6vh;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img class="lessonsmoreimg" src="images/studio.jpg">
+
+
+
+    <div class="content">
+        <div class="lessonsmore">
+            <div>
+                <div class="lessonsmorename">Балет(Классика)</div>
+                <div class="lessonsmorestudio">La Perla Mind&Body</div>
+            </div>
+        </div>
+
+    <div class="aboutlesson">
+        <div class="leftplace">
+            15/35
+            <a style="font-size: 5vw;">Мест доступно</a>
+        </div>
+
+        <div class="rightplace">
+            <div style="display:flex;font-size: 5vw;">31 Мая</div>
+            с 09:00 - до 10:00
+        
+        
+        </div>
+    </div>
+
+        <p class="lessonsmoresuggestionstudio">Описание</p>
+        <p class="lessonsmoresuggestionstudio" style="font-size: 4vw; ">Изначально предполагалось, что на основной странице читателя коротко приветствуют и рассказывают о том, чем занимается компания.</p>
+        
+
+        <p class="lessonsmoresuggestionstudio">Студия</p>
+        <div class="lessonsmoresuggestion" onclick="location.href='#'">
+            <div class="lessonsmoresuggestionimg" style="background-image: url(images/studio.jpg); "></div>
+            <p class="lessonsmoresuggestiontext">La Perla Mind&Body</p>
+        </div> 
+
+        <p class="lessonsmoresuggestionstudio">Как добраться</p>
+        <p class="lessonsmoresuggestionstudio" style="font-size: 4vw;">г.Архангельск, Ломоносова 181</p>
+        <!-- 64.545038, 40.521574 -->
+        <a href="https://yandex.ru/maps/?um=constructor%3A236cebc630d42f6d4638a9eacdb0ded5b454af16ab956551df4f7fba46f378e0&amp;source=constructorStatic" target="_blank"><img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3A236cebc630d42f6d4638a9eacdb0ded5b454af16ab956551df4f7fba46f378e0&amp;width=500&amp;height=180&amp;lang=ru_RU" alt="" style="border-radius: 5vw; outline: 0.5vw solid; " /></a>
+        
+        <!-- <button class="lessonsmoreconfirm" id="myBtn">
+            <div class="lessonsmoreconfirmtxt">Забронировать</div>
+            <div class="lessonsmoreconfirmpoints">15000 баллов</p></div>
+        </button> -->
+        
+            
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+            
+    </div>
+    <div class="container">
+        <button class="containerlessonsmoreconfirm" id="myBtn">
+            <div class="containerlessonsmoreconfirmtxt">ЗАБРОНИРОВАТЬ</div>
+        </button>
+    </div>
+    
+    <div class="footer">
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/main2.png" >Главная</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="../images/categories/studio2.png" >Студии</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="../images/categories/ticket2.png" >Абонемент</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="../images/categories/profile2.png" >Профиль</a>
+    </div>
+
+    <div id="myModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span class="close">×</span>
+          
+
+          <div class="lessonsmore">
+          <div>
+              <div class="lessonsmorename">Балет(Классика)</div>
+              <div class="lessonsmorestudio">La Perla Mind&amp;Body</div>
+          </div>
+      </div>
+
+  <div class="aboutlesson">
+      <div class="leftplace">
+          15/35
+          <a style="font-size: 5vw;">Мест доступно</a>
+      </div>
+
+      <div class="rightplace">
+          <div style="display:flex;font-size: 5vw;">31 Мая</div>
+          с 09:00 - до 10:00
+      
+      
+      </div>
+  </div>
+
+          <button class="lessonsmoreconfirm" id="myBtn" style="bottom: 13vh;">
+            <div class="lessonsmoreconfirmtxt">Забронировать</div>
+            <div class="lessonsmoreconfirmpoints">15 баллов<p></p></div>
+        </button>
+        </div>
+      </div>
+</body>
+
+
+
+
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+        
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+        function toggleImage(element) {
+        const img = element.querySelector('img');
+        if (img.src.includes('favoritefalse.png')) {
+            img.src = 'images/favorite.png'; // Укажите путь к другому изображению
+        } else {
+            img.src = 'images/favoritefalse.png'; // Возврат к исходному изображению
+        }
+    }
+
+    </script>
+</html>

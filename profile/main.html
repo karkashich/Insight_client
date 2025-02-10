@@ -1,0 +1,144 @@
+
+
+
+
+
+
+
+
+<div>
+    <div class="balance-wrapper">
+        <livewire:client.layout.balance />
+    </div>
+
+    <div class="profile_content">
+        <div class="profile-photo">
+            <img src="{{
+                $user->avatar
+                ? str_contains($user->avatar, "http") ? $user->avatar : asset("storage/$user->avatar")
+                : Vite::asset('resources/images/no-photo/user.png')
+                }}" />
+        </div>
+
+        <div class="profile-name">София</div>
+        <a class="btn profile-edit-btn" href="{{ route('client.profile.edit') }}" wire:navigate>
+            Редактировать профиль
+        </a>
+
+        
+
+        <div class="profile-options">
+            <div class="profile-option option-city">
+                <div class="option-icon-name">
+                    <img class="option-icon" src="{{ Vite::asset('resources/images/profile/map.png') }}">
+                    <div class="option-name">Ваш город</div>
+                </div>
+                <div class="option-value-arrow">
+                    <div class="option-value">Архангельск</div>
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+
+
+<!-- тут перевод на страницы с данными -->
+            <div class="profile-option option-city" href="{{ route('urdata') }}" wire:navigate>  
+                <div class="option-icon-name">
+                    <img class="option-icon" src="{{ Vite::asset('resources/images/profile/map.png') }}">
+                    <div class="option-name">Юридические данные</div>
+                </div>
+                <div class="option-value-arrow">
+                    
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+            <div class="profile-option option-city" href="{{ route('bankdata') }}" wire:navigate>
+                <div class="option-icon-name">
+                    <img class="option-icon" src="{{ Vite::asset('resources/images/profile/map.png') }}">
+                    <div class="option-name">Банковские данные</div>
+                </div>
+                <div class="option-value-arrow">
+                    
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+<!-- /////////////////////////////////////////////// -->
+
+
+            <div class="profile-option" href="{{ route('client.faq') }}" wire:navigate>
+                <div class="option-icon-name">
+                    <img class="option-icon" src="">
+                    <div class="option-name">FAQ</div>
+                </div>
+                <div class="option-value-arrow">
+                    <div class="option-value"></div>
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+            <div class="profile-option" href="{{ route('docs-privacyPolicy') }}" wire:navigate>
+                <div class="option-icon-name">
+                    <img class="option-icon" src="">
+                    <div class="option-name">Политика конфиденциальности</div>
+                </div>
+                <div class="option-value-arrow">
+                    <div class="option-value"></div>
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+            <div class="profile-option" href="{{ route('docs-userAgreement') }}" wire:navigate>
+                <div class="option-icon-name">
+                    <img class="option-icon" src="">
+                    <div class="option-name">Пользовательское соглашение</div>
+                </div>
+                <div class="option-value-arrow">
+                    <div class="option-value"></div>
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+            <div class="profile-option" href="{{ route('docs-consentToProcessPD') }}" wire:navigate>
+                <div class="option-icon-name">
+                    <img class="option-icon" src="">
+                    <div class="option-name">Согласие на обработку персональных данных</div>
+                </div>
+                <div class="option-value-arrow">
+                    <div class="option-value"></div>
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+            <div class="profile-option" wire:click="logout">
+                <div class="option-icon-name">
+                    <img class="option-icon" src="">
+                    <div class="option-name">Выйти из аккаунта</div>
+                </div>
+                <div class="option-value-arrow">
+                    <div class="option-value"></div>
+                    <img class="option-arrow" src="{{ Vite::asset('resources/images/profile/arrow-left.svg') }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-text">
+            Версия приложения 1.0.1
+        </div>
+
+        
+    </div>
+
+    <livewire:client.components.profile.modal-edit-city modalPrefix="city" :$user/>
+</div>
+
+
+@script
+<script>
+    let optionCity = document.querySelector('.option-city');
+    optionCity.addEventListener('click', function (event) {
+        let city = event.currentTarget.querySelector('.option-value').innerText;
+        Livewire.dispatch('modal-form-open_city', { city:  city });
+    });
+
+    Livewire.on(`modal-close`, (data) => {
+        if (data.update) {
+            $wire.$refresh();
+        }
+    });
+</script>
+@endscript
