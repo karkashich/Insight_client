@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        body{
+
+            background-color: #ffffff;
+            margin: 0px;
+            width: 100%;
+            align-items: center;
+        }
+        .content{
+            z-index: 950 ;
+            position: absolute;
+            color: #1D1C1A;
+            margin-top: 7vh;
+            justify-content: center;
+            width: 89.7vw;
+            height: 80vh;
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Montserrat';
+        }
+
+
+
+        .reservecontent{
+            z-index: 950 ; 
+            display: flex;
+            margin-top: 5vh;  
+            width: 89.7vw;
+            font-family: 'Montserrat';
+            font-size: 5vw;
+            font-weight: 500;
+            margin-bottom: 0.75vh;
+        }
+        .todayreservtxt{
+            margin-left: 5vw;
+        }
+        .reserve_code{
+            margin-left: 17vw;
+        }
+        .line {
+            border-radius: 50vw;
+            width: 89.7vw;
+            height: 0.25vh;
+            background-color: #67645E;
+            margin: 0 auto; /* Центрируем элемент */
+        }
+        .allcards{
+            display: flex;
+        }
+        .content{
+            z-index: 950 ;
+            position: absolute;
+            color: #1D1C1A;
+            margin-top: 10vh;
+            justify-content: center;
+            width: 89.7vw;
+            height: 80vh;
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Montserrat';
+        }
+        .reservcardinfo{
+            margin-top: 2vh;
+            padding: 1vh 5vw;
+            border: #67645E solid 0.75vw;
+            border-radius: 5vw;
+            font-weight: 500;
+            font-size: 5vw;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+            max-width: 60%;
+        }
+        .reservcardcode{
+            
+            padding: 0vh 5vw;
+           
+            border-radius: 5vw;
+            
+            font-weight: 500;
+            font-size: 5vw;
+            color: #fff;
+            background-color: #D9674F;
+            position: absolute;
+            right: 0;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+        .reservcardcodeimg{
+            height: 5vh;
+        }
+        .reservcardinfofuture{
+            margin-top: 2vh;
+            padding: 1vh 5vw;
+            border: #67645E solid 0.75vw;
+            border-radius: 5vw;
+            font-weight: 500;
+            width: 89.7vw;
+            height: 6vh;
+            font-size: 5vw;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 13vh;
+            background-color: #ffffff;
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+        }
+        .mainimg{
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        }
+        .confirmcancellesson{
+            z-index: 999;
+        }
+        .modal {
+                display: none;
+                position: fixed;
+                font-family: Montserrat;
+                z-index: 999;
+                
+                width: 100vw;
+                height: 100%;
+                overflow: auto;
+                background-color: rgb(0,0,0,0.4);
+            }
+            .modal-content {
+                background-color: #fff;
+                margin-top: 60.5vh;
+                padding: 20px;
+                
+                height: 35vh;
+                display: flex;
+                flex-direction: column;
+                font-family: Montserrat;
+                font-weight: 500;
+                font-size: 5vw;
+                align-items: center;
+                text-align: center;
+                
+            }
+            .btns{
+                margin-top: 2vh;
+                display: flex;
+            }
+            .applybtn{
+                padding: 1vh;
+                width: 42vw;
+                height: auto;
+                border: none;
+                border-radius: 5vh;
+                background-color: #D9674F;
+                font-family: Montserrat;
+                font-weight: 600;
+                color: #fff;
+                font-size: 4.5vw;
+            }
+            .denybtn{
+                margin-left: 5vw;
+                width: 42vw;
+                height: 5vh;
+                border: none;
+                border-radius: 5vh;
+                background-color: #7B8F74;
+                font-family: Montserrat;
+                font-weight: 600;
+                color: #fff;
+                font-size: 4.5vw;
+            }
+    </style>
+    
+</head>
+
+<body>
+    <div class="content">
+        <div class="reservecontent">
+            <div class="todayreservtxt">Занятия на сегодня</div>
+            <div class="reserve_code">Код</div>
+        </div>
+        <div class="line"></div>
+
+        <div class="allcards">
+            <div class="reservcardinfo">Балет(Классика)<br>sjkhdvbfjhsdgvfjhgj<br>hgfsdfgsfdgkldjfhbgk
+                <div class="reservcardtime">09:00-10:00</div>
+                <div class="reservcardcode">754</div>  
+            </div>
+            
+        </div>  
+        <div class="allcards">
+            <div class="reservcardinfo">Балет(Классика)
+                <div class="reservcardtime">09:00-10:00</div>
+                <div class="reservcardcode">592</div> 
+            </div>
+             
+        </div> 
+
+
+
+        <div class="reservecontent">
+            <div class="todayreservtxt">Ваши будущие бронирования</div>
+            
+        </div>
+        <div class="line"></div>
+
+
+        <div class="allcards">
+            <div class="reservcardinfo">Балет(Классика)
+                <div class="reservcardtime">09:00-10:00</div>
+                <div class="reservcardcode" id="cancellesson">
+                    <img class="reservcardcodeimg" src="images/cancel.png">
+                </div>  
+            </div>
+            
+        </div>  
+        <div class="allcards">
+            <div class="reservcardinfo">Балет(Классика)
+                <div class="reservcardtime">09:00-10:00</div>
+                <div class="reservcardcode" id="cancellesson">
+                    <img class="reservcardcodeimg" src="images/cancel.png">
+                </div>  
+            </div>
+            
+        </div> 
+        <div class="allcards">
+            <div class="reservcardinfo">Балет(Классика)
+                <div class="reservcardtime">09:00-10:00</div>
+                <div class="reservcardcode" id="cancellesson">
+                    <img class="reservcardcodeimg" src="images/cancel.png">
+                </div>  
+            </div>
+            
+        </div> 
+        <div class="allcards">
+            <div class="reservcardinfo">Балет(Классика)
+                <div class="reservcardtime">09:00-10:00</div>
+                <div class="reservcardcode" id="cancellesson">
+                    <img class="reservcardcodeimg" src="images/cancel.png">
+                </div>  
+            </div>
+            
+        </div> 
+        <div class="allcards">
+            <div class="reservcardinfo">Балет(Классика)
+                <div class="reservcardtime">09:00-10:00</div>
+                <div class="reservcardcode" id="cancellesson">
+                    <img class="reservcardcodeimg" src="images/cancel.png">
+                </div>  
+            </div>
+            
+        </div> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    
+    <div class="footer">
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/main2.png" >Главная</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/studio2.png" >Студии</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/ticket2.png" >Абонемент</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/profile2.png" >Профиль</a>
+    </div>
+
+
+
+    <!-- Модальное окно -->
+    <div id="confirmcancellesson" class="modal" style="display:none;">
+        <div class="modal-content">
+            <!-- <span class="close">&times;</span> -->
+            <p>Вы уверены, что хотите<br> отменить запись?</p>
+            <div class="btns">
+                <button class="applybtn" id="confirmCancel">ДА</button>
+                <button class="denybtn" id="denyCancel">НЕТ</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    $(document).ready(function(){
+        $('.reservcardcode').each(function(){
+            var parentHeight = $(this).parent('.reservcardinfo').outerHeight();
+            $(this).css('height', parentHeight);
+        });
+    });
+
+
+    const reservCardCodes = document.querySelectorAll('.reservcardcode');
+
+// Применяем обработчик события к каждому элементу
+reservCardCodes.forEach(function(reservCardCode) {
+    reservCardCode.onclick = function() {
+        document.getElementById('confirmcancellesson').style.display = "block";
+    }
+});
+
+// // Настраиваем обработчик для кнопки закрытия
+// document.querySelector('.close').onclick = function() {
+//     document.getElementById('confirmcancellesson').style.display = "none";
+// }
+
+// Настраиваем обработчик для кнопки отмены
+document.getElementById('denyCancel').onclick = function() {
+    document.getElementById('confirmcancellesson').style.display = "none";
+}
+    
+</script>
+</html>
