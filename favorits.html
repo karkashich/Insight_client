@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        body{
+
+            background-color: #fff;
+            margin: 0px;
+            width: 100%;
+            align-items: center;
+        }
+        .content{
+            z-index: 950 ;
+            position: absolute;
+            color: #1D1C1A;
+            margin-top: 7vh;
+            justify-content: center;
+            width: 89.7vw;
+            
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Montserrat';
+        }
+
+        .reservecontent{
+            z-index: 950 ; 
+            display: flex;
+            margin-top: 2vh;  
+            width: 89.7vw;
+            font-family: 'Montserrat';
+            font-size: 5vw;
+            font-weight: 500;
+            margin-bottom: 0.75vh;
+        }
+        .todayreservtxt{
+            margin: auto;
+            font-family: Montserrat;
+            font-size: 25px;
+        }
+        
+        .line {
+            border-radius: 50vw;
+            width: 89.7vw;
+            height: 0.25vh;
+            background-color: #67645E;
+            margin: 0 auto; /* Центрируем элемент */
+        }
+
+        
+        
+
+
+
+
+
+        
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 13vh;
+            background-color: #EEE9E7;
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+        }
+        .mainimg{
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        }
+
+
+        .lessoncard{
+            z-index: 3;
+            margin-top: 2vh;
+            border: #67645E solid 0.2vw;
+            border-radius: 2.5vh;
+            font-size: 2.5vh;
+            font-family: "Montserrat";
+            font-weight: 300;
+            color: #67645E;
+            
+        } 
+        .lessoncardimg{
+            height: 18vh;
+            width: 89.3vw;
+            object-fit: cover;
+            outline: #67645E solid 0.2vw;
+            border-radius: 2.4vh;
+            margin: 0;
+        }
+        .lessoncardinfo{
+            padding: 0vh 3vw 0vh 3vw;
+        }
+        .namelesson{
+            position: absolute;
+            margin-top: 0;
+            font-weight: 500;
+            color: #D9674F;
+        } 
+        .timelesson{
+            position: absolute;
+            margin-top: 0;
+            right: 3vw;
+        }
+        .studiolesson{
+            position: absolute;
+            margin-top: 3.5vh;
+            font-size: 1.8vh;
+        }
+        .cardbtm{
+            position: relative;
+            margin-bottom: -0.5vh;
+            display: flex;
+            align-items: center;
+        }
+        .costlesson{
+            position: absolute;
+            right: -1vw;
+            border-radius: 5vh;
+            border: #67645E solid 0.2vw;
+            padding: 0.1vh 3vw;
+            font-size: 5vw;
+            margin-top: 8vh;
+        }
+        .pointlesson{
+            color: #7B8F74;
+            font-size: 2vh;
+            font-weight: 400;
+            margin-top: 8vh;
+
+        }
+
+
+
+
+
+
+
+
+        .studiocard{
+            justify-content: center;
+            align-items: center;
+            margin: 2vh 0vh ;
+
+        }
+        .studioimg{
+            border-radius: 4vw;
+            height: 20vh; 
+            width:89.7vw;
+            background-repeat: space;
+            overflow: hidden;
+            object-fit: cover;
+        }
+        .studioname{
+            font-family: 'Montserrat';
+            font-size: 3vh;
+            color: #67645E;
+            font-weight: 300;
+        }
+        .studioadress{
+            position:inherit;
+            font-family: 'Montserrat';
+            font-size: 2.5h;
+            color: #67645E;
+            font-weight: 400;
+            margin: 0%;
+            padding: 0%;
+            width: 75vw;
+        }
+
+
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 13vh;
+        
+            background-color: #fff;
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+            
+        }
+        
+
+        .visitorsBlock {
+            display: none; 
+        }
+
+        .bottombtn{
+            width: 89.7vw;
+            margin-top: 2vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2vw;
+            top: 13.5vh;
+            font-family: Montserrat;
+            font-weight: 550;
+            z-index: 999;
+        }
+        .progressbtn{
+            width: 43.5vw;
+            text-align: center;
+            font-size: 3vw;
+            padding: 0.75vh;
+            border-radius: 500px;
+            border: 0.25vw solid #67645E;
+        }
+        
+    </style>
+    
+</head>
+
+<body>
+    <div class="content">
+        
+        <div class="reservecontent">
+            <div class="todayreservtxt">ИЗБРАННОЕ</div>
+            
+        </div>
+        <div class="line"></div>
+        
+        <div class="bottombtn">                 
+            <div class="progressbtn" style="background-color: #7B8F74; color: #fff;" id="finance">ЗАНЯТИЯ</div>        
+            <div class="progressbtn" style="background-color: #EEE9E7; color: #1D1C1A;" id="visitors">СТУДИИ</div>
+        </div> 
+
+        
+        
+        <div id="financeBlock" class="financeBlock">
+            
+            <br>
+            <div class="line"></div>
+
+            <div class="lessoncard" onclick="location.href='#'"> 
+                <img src="images/studio.jpg" class="lessoncardimg">
+                <div class="lessoncardinfo">
+                    <p class="namelesson">Балет(классика)</p>
+                    <p class="timelesson">9:00 - 10:00</p>
+                    <p class="studiolesson">La Perla Mind&Body</p>
+                    <div class="cardbtm">
+                        <p class="pointlesson">Осталось мест: 5</p>
+                        <p class="costlesson">12 баллов</p>
+                    </div>
+                </div>
+            </div>   
+
+            <div class="lessoncard" onclick="location.href='#'"> 
+                <img src="images/studio.jpg" class="lessoncardimg">
+                <div class="lessoncardinfo">
+                    <p class="namelesson">Балет(классика)</p>
+                    <p class="timelesson">9:00 - 10:00</p>
+                    <p class="studiolesson">La Perla Mind&Body</p>
+                    <div class="cardbtm">
+                        <p class="pointlesson">Осталось мест: 5</p>
+                        <p class="costlesson">12 баллов</p>
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+        
+        
+        <div id="visitorsBlock" class="visitorsBlock">
+            <br>
+            <div class="line"></div>
+            
+            <div class="studiocard" onclick="location.href='#'">
+                <img  class="studioimg" src="images/studio.jpg" />
+                <a class="studioname">Reshape</a>
+                <p class="studioadress">Ул. Ломоносова, 181, офис 24</p>
+            </div>
+
+            <div class="studiocard" onclick="location.href='#'">
+                <img  class="studioimg" src="images/studio.jpg" />
+                <a class="studioname">Reshape</a>
+                <p class="studioadress">Ул. Ломоносова, 181, офис 24</p>
+            </div>
+
+            <div class="studiocard" onclick="location.href='#'">
+                <img  class="studioimg" src="images/studio.jpg" />
+                <a class="studioname">Reshape</a>
+                <p class="studioadress">Ул. Ломоносова, 181, офис 24</p>
+            </div>
+
+        </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    </div>
+    
+
+    <div class="footer">
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/main2.png" >Главная</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/studio2.png" >Студии</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/ticket2.png" >Прогресс</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/notiftrue.png" >События</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/profile2.png" >Профиль</a>
+    </div>
+</body>
+
+
+
+
+
+<script>
+    // Получаем ссылки на кнопки и блоки
+    const financeButton = document.getElementById('finance');
+    const visitorsButton = document.getElementById('visitors');
+    const financeBlock = document.getElementById('financeBlock');
+    const visitorsBlock = document.getElementById('visitorsBlock');
+
+    // Функция для показа блока и скрытия других
+    function showBlock(blockToShow, buttonToHighlight) {
+        financeBlock.style.display = 'none';  // Скрываем блок Финансов
+        visitorsBlock.style.display = 'none'; // Скрываем блок Посещений
+        blockToShow.style.display = 'block';   // Показываем выбранный блок
+
+        // Сброс фона для обеих кнопок
+        financeButton.style.backgroundColor = '#EEE9E7';
+        visitorsButton.style.backgroundColor = '#EEE9E7';
+        financeButton.style.color = '#1D1C1A';
+        visitorsButton.style.color = '#1D1C1A';
+
+        // Установка фона для нажатой кнопки
+        buttonToHighlight.style.backgroundColor = '#7B8F74';
+        buttonToHighlight.style.color = '#FFF'; 
+    }
+
+    // События на кнопки
+    financeButton.addEventListener('click', function() {
+        showBlock(financeBlock, financeButton);
+    });
+
+    visitorsButton.addEventListener('click', function() {
+        showBlock(visitorsBlock, visitorsButton);
+    });
+
+    
+</script>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        body{
+
+            background-color: #fff;
+            margin: 0px;
+            width: 100%;
+            align-items: center;
+        }
+        .subscription{
+            position: fixed;
+            align-items: center;
+            margin-top: 5vh;
+            height: 3.6vh;
+            width: 47.5vw;
+            margin-left: 47.5vw;
+            background-color: #7B8F74;
+            border-radius: 50vh;
+            z-index: 999;
+        }
+        .subscription1{
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-family: 'Montserrat';
+            font-weight: 500;
+            font-size: 2.1vh;
+
+        }
+        .subscription0{
+            display: block;
+            position: absolute;
+            justify-content: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-47%, -50%);
+            color: #fff;
+            font-family: 'Montserrat';
+            font-size: 1.8vh;
+            font-weight: 500;
+            width: 44vw;
+            padding: 0%;
+            margin: 0%;
+        }
+        .filters_card{
+            position: fixed;
+            
+            height: 21.5vh;
+            width: 100vw;
+            background-color: #fff;
+            margin-top: -2.7vh;
+            z-index: 998;
+        }
+        .filterblock{
+            position: absolute;
+            margin-top: 17.5vh;
+            margin-left: 3.1vw;
+            background-color: #fff;
+
+        }
+        .filters{
+            background-color: #fff;
+            display: inline-flex;
+            flex-direction: column;
+            margin-left: 2vw;
+            border: #67645E solid 0.2vh;
+            padding: 0.2vh 4vw;
+            color: #67645E;
+            border-radius: 50vh;
+            font-family: 'Montserrat';
+            font-size: 1.8vh;
+        }
+
+        .search_block{
+            position: fixed;
+            z-index: 999;
+            margin-top: 9.7vh;
+            color: #67645E;
+            padding: 0.4vh 5vw;
+            border-radius: 2vh;
+            font-family: 'Montserrat';
+            font-size: 2.5vh;
+            border: #67645E solid 0.2vh;
+            width: 79.7vw;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        input{
+            background-color: #ffffff00;
+            border: none;
+            border-radius: 4.5vh;
+            font-size: 2.5vh;
+            font-family: "Montserrat";
+            font-weight: 400;
+            color: #67645E;
+            width: 79vw;
+            
+        }
+        .content{
+            z-index: 950 ;
+            position: absolute;
+            margin-top: 18vh;
+            justify-content: center;
+            align-items: center;
+            width: 89.7vw;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        
+
+
+        .lessoncard{
+            z-index: 3;
+            margin-top: 2vh;
+            border: #67645E solid 0.2vw;
+            border-radius: 2.5vh;
+            font-size: 2.5vh;
+            font-family: "Montserrat";
+            font-weight: 300;
+            color: #67645E;
+            
+        } 
+        .lessoncardimg{
+            height: 18vh;
+            width: 89.3vw;
+            object-fit: cover;
+            outline: #67645E solid 0.2vw;
+            border-radius: 2.4vh;
+            margin: 0;
+            z-index: 500;
+        }
+        .paymenttxt{
+            border-radius: 50vw;
+            background-color: #67645E;
+            color: #fff;
+            font-size: 2.5vw;
+            font-family: "Montserrat";
+            font-weight: 550;
+            padding: 0.5vh 3vw;
+            margin-left: 3vw;
+            position: absolute;
+            z-index: 999;
+            margin-top: -4.5vh;
+        }
+        .lessoncardinfo{
+            padding: 0vh 3vw 0vh 3vw;
+        }
+        .namelesson{
+            position: absolute;
+            margin-top: 0;
+            font-weight: 500;
+            color: #D9674F;
+        } 
+        .timelesson{
+            position: absolute;
+            margin-top: 0;
+            right: 3vw;
+        }
+        .studiolesson{
+            position: absolute;
+            margin-top: 3.5vh;
+            font-size: 1.8vh;
+        }
+        .cardbtm{
+            position: relative;
+            margin-bottom: -0.5vh;
+            display: flex;
+            align-items: center;
+        }
+        .costlesson{
+            position: absolute;
+            right: -1vw;
+            border-radius: 5vh;
+            border: #67645E solid 0.2vw;
+            padding: 0.1vh 3vw;
+            font-size: 5vw;
+            margin-top: 8vh;
+        }
+        .pointlesson{
+            color: #7B8F74;
+            font-size: 2vh;
+            font-weight: 400;
+            margin-top: 8vh;
+
+        }
+
+
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 9.8vh;
+        
+            background-color: rgb(255, 255, 255);
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+            
+        }
+        .mainimg{
+
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        }
+    </style>
+    
+</head>
+
+<body>
+    <br>
+    <div class="subscription">
+        <div class="subscription1" onclick="location.href='#'">
+            <a>4900</a>
+        </div>
+        <div class="subscription0" onclick="location.href='#'">
+            <a>оформить подписку</a>
+        </div>
+    </div>
+
+    <div class="search_block">
+        <a>
+            <input type="" id="name" name="name"  placeholder="Куда пойдем?" />
+        </a>
+    </div>
+    
+    <div class="filters_card">
+        <div class="filterblock">
+            <button class="filters" id="#" >Творчество без границ</button>
+            <button class="filters" id="#" >Для детей</button>
+
+        </div>  
+    </div>    
+
+    <div class="content">
+
+        <div class="lessoncard" onclick="location.href='#'"> 
+            <img src="images/studio.jpg" class="lessoncardimg">
+            <div class="paymenttxt">ОПЛАТА ТОЛЬКО АБОНЕМЕНТОМ</div>
+            <div class="lessoncardinfo">
+                <p class="namelesson">Балет(классика)</p>
+                <p class="timelesson">9:00 - 10:00</p>
+                <p class="studiolesson">La Perla Mind&Body</p>
+                <div class="cardbtm">
+                    <p class="pointlesson">Осталось мест: 5</p>
+                    <p class="costlesson">12 баллов</p>
+                </div>
+            </div>
+        </div>    
+
+        <div class="lessoncard" onclick="location.href='#'"> 
+            <img src="images/studio.jpg" class="lessoncardimg">
+            <div class="paymenttxt">ОПЛАТА ТОЛЬКО АБОНЕМЕНТОМ</div>
+            <div class="lessoncardinfo">
+                <p class="namelesson">Балет(классика)</p>
+                <p class="timelesson">9:00 - 10:00</p>
+                <p class="studiolesson">La Perla Mind&Body</p>
+                <div class="cardbtm">
+                    <p class="pointlesson">Осталось мест: 5</p>
+                    <p class="costlesson">12 баллов</p>
+                </div>
+            </div>
+        </div> 
+        
+        <div class="lessoncard" onclick="location.href='#'"> 
+            <img src="images/studio.jpg" class="lessoncardimg">
+            <div class="lessoncardinfo">
+                <p class="namelesson">Балет(классика)</p>
+                <p class="timelesson">9:00 - 10:00</p>
+                <p class="studiolesson">La Perla Mind&Body</p>
+                <div class="cardbtm">
+                    <p class="pointlesson">Осталось мест: 5</p>
+                    <p class="costlesson">12 баллов</p>
+                </div>
+            </div>
+        </div> 
+
+        
+
+        
+       
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <div class="footer">
+        
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/main2.png" >Главная</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/studio2.png" >Студии</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/ticket2.png" >Абонемент</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/profile2.png" >Профиль</a>
+    </div>
+</body>
+
+
+
+
+
+<script>
+
+</script>
+</html>

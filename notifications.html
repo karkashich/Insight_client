@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        body{
+
+            background-color: #fff;
+            margin: 0px;
+            width: 100%;
+            align-items: center;
+        }
+        .content{
+            z-index: 950 ;
+            position: absolute;
+            color: #1D1C1A;
+            margin-top: 7vh;
+            justify-content: center;
+            width: 89.7vw;
+            height: 80vh;
+            left: 50%;
+            transform: translate(-50%);
+            font-family: 'Montserrat';
+        }
+
+        .reservecontent{
+            z-index: 950 ; 
+            display: flex;
+            margin-top: 0vh;  
+            width: 89.7vw;
+            font-family: 'Montserrat';
+            font-size: 5vw;
+            font-weight: 500;
+            margin-bottom: 0.75vh;
+        }
+        .todayreservtxt{
+            margin: auto;
+            font-family: Montserrat;
+            font-size: 25px;
+        }
+        
+        .line {
+            margin-top: 1vh;
+            border-radius: 50vw;
+            width: 89.7vw;
+            height: 0.25vh;
+            background-color: #67645E;
+            margin: 0 auto; /* Центрируем элемент */
+        }
+        
+        
+        
+        
+
+
+        .studiolesson{
+            cursor: pointer;
+            margin-top: 2vh;
+            padding: 0.5vh 5vw;
+            border: #7B8F74 solid 0.75vw;
+            background-color: #EEE9E7;
+            border-radius: 5vw;
+            font-family: Montserrat;
+            font-size: 4.75vw;
+            font-weight: 400;
+            color: #1D1C1A;
+        }
+        .studiolessonallert{
+            cursor: pointer;
+            margin-top: 2vh;
+            padding: 0.5vh 5vw;
+            border: #D9674F solid 0.75vw;
+            background-color: #EEE9E7;
+            border-radius: 5vw;
+            font-family: Montserrat;
+            font-size: 4.75vw;
+            font-weight: 400;
+            color: #1D1C1A;
+        }
+        .studiomoder{
+            cursor: pointer;
+            margin-top: 2vh;
+            padding: 0.5vh 5vw;
+            border: #7B8F74 solid 0.75vw;
+            background-color: #7B8F74;
+            border-radius: 5vw;
+            font-family: Montserrat;
+            font-size: 4.75vw;
+            font-weight: 300;
+            color: #ffffff;
+        }
+        .studiomoderallert{
+            cursor: pointer;
+            margin-top: 2vh;
+            padding: 0.5vh 5vw;
+            border: #7B8F74 solid 0.75vw;
+            background-color: #D9674F;
+            border-radius: 5vw;
+            font-family: Montserrat;
+            font-size: 4.75vw;
+            font-weight: 200;
+            color: #1D1C1A;
+            font-weight: 600;
+        }
+        .studiolessonname{
+            display: inline-block;
+            width: 48vw;
+            padding: 0.5vh 0vw;
+
+        }
+        .studiolessoncost{
+            display: inline-block;
+            position: absolute;
+            border-radius: 50vw;
+            background-color: #7B8F74;
+            padding: 0.5vh 3vw;
+            color: #fff;
+            right: 3vw;
+        }
+        .studiolessondate{
+            margin-top: 2vh;
+            display: inline-block;
+            width: 50vw;
+        }
+        .studiolessontime{
+            position: absolute;
+            right: 5vw;
+            display: inline-block;
+            
+        }
+
+        
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 13vh;
+            background-color: #EEE9E7;
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+        }
+        .mainimg{
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        }
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 13vh;
+        
+            background-color: #fff;
+            z-index: 999;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+            
+        }
+        .mainimg{
+
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        }
+        .plus-button {
+            background-color: #D9674F; 
+            border: none; 
+            z-index: 999;
+            position: fixed;
+            opacity: 90%;
+            bottom: 13vh;
+            right: 5vw;
+            color: white;
+            text-align: center; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-size: 7vh; 
+            margin: 0.5vw auto;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5vw;
+            width: 18vw;
+
+        }
+        .back_btn{
+            position: absolute;
+            z-index: 999;
+            margin-top: 7.5vh;
+            left: 7.5vw;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="back_btn" onclick="goBack()">
+        <img src="images/categories/back_btn-980aeb7b.svg" alt="back">
+    </div>
+    <div class="content">
+        
+        <div class="reservecontent">
+            <div class="todayreservtxt">Уведомления</div>
+            
+        </div>
+        <!-- <div class="line"></div> -->
+            <div class="studiolesson">
+                <p>Занятие</p>
+                <p>Вы что-то там “название” запланированное на 24.10.2024</p>
+            </div>
+        
+            <div class="studiolessonallert">
+                 <p>Занятие</p>
+                 <p>Вы отменили запись на “название” запланированное на 24.10.2024</p>
+            </div>
+        
+            <div class="studiolesson">
+                <p>Возврат средств</p>
+                <p>Средства за абонемент будут возвращены на ваш счет в течении 7 рабочих дней</p>
+            </div>
+        
+            <div class="studiolessonallert">
+                 <p>Занятие</p>
+                 <p>Вы отменили “название” запланированное на 24.10.2024</p>
+            </div>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+           <br>
+    </div>
+    </div>
+
+    <div class="footer">
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/main2.png" >Главная</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/lessons-1e77d957.png">Занятия</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/studio2.png" >Студии</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/ticket2.png" >Прогресс</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/profile2.png" >Профиль</a>
+    </div>
+</body>
+
+
+
+
+
+<script>
+    
+</script>
+</html>

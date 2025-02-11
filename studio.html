@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+          }
+        body{
+
+            background-color: #EEE9E7;
+            margin: 0px;
+            width: 100%;
+            align-items: center;
+        }
+        .subscription{
+            position: fixed;
+            align-items: center;
+            margin-top: 5vh;
+            height: 3.6vh;
+            width: 47.5vw;
+            margin-left: 47.5vw;
+            background-color: #7B8F74;
+            border-radius: 50vh;
+            z-index: 999;
+        }
+        .subscription1{
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #EEE9E7;
+            font-family: 'Montserrat';
+            font-weight: 500;
+            font-size: 2.1vh;
+
+        }
+        .subscription0{
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-47%, -50%);
+            color: #EEE9E7;
+            font-family: 'Montserrat';
+            font-size: 1.8vh;
+            font-weight: 500;
+            width: 44vw;
+            padding: 0%;
+            margin: 0%;
+        }
+        .filters_card{
+            position: fixed;
+            
+            height: 20vh;
+            width: 100vw;
+            background-color: #EEE9E7;
+            margin-top: -2.1vh;
+            z-index: 998;
+        }
+        .filterblock{
+            position: absolute;
+            margin-top: 17vh;
+            margin-left: 3vw;
+            background-color: #EEE9E7;
+
+        }
+        .filters{
+            background-color: #EEE9E7;
+            display: inline-flex;
+            flex-direction: column;
+            margin-left: 2vw;
+            border: #67645E solid 0.2vh;
+            padding: 0.2vh 4vw;
+            color: #67645E;
+            border-radius: 50vh;
+            font-family: 'Montserrat';
+            font-size: 1.8vh;
+        }
+
+        .search_block{
+            position: fixed;
+            z-index: 999;
+            margin-top: 9.7vh;
+            color: #67645E;
+            padding: 0.4vh 5vw;
+            border-radius: 2vh;
+            font-family: 'Montserrat';
+            font-size: 2.5vh;
+            border: #67645E solid 0.2vh;
+            width: 79.7vw;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        input{
+            background-color: #ffffff00;
+            border: none;
+            border-radius: 4.5vh;
+            font-size: 2.5vh;
+            font-family: "Montserrat";
+            font-weight: 400;
+            color: #67645E;
+            width: 79vw;
+            
+        }
+
+
+
+        .content{
+            z-index: 950 ;
+            position: absolute;
+            margin-top: 18vh;
+            justify-content: center;
+            align-items: center;
+            width: 89.7vw;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .studiocard{
+            justify-content: center;
+            align-items: center;
+            margin: 2vh 0vh ;
+
+        }
+        .studioimg{
+            border-radius: 4vw;
+            height: 20vh; 
+            width:89.7vw;
+            background-repeat: space;
+            overflow: hidden;
+            object-fit: cover;
+        }
+        .studioname{
+            font-family: 'Montserrat';
+            font-size: 3vh;
+            color: #67645E;
+            font-weight: 300;
+        }
+        .studioadress{
+            position:inherit;
+            font-family: 'Montserrat';
+            font-size: 2.5h;
+            color: #67645E;
+            font-weight: 400;
+            margin: 0%;
+            padding: 0%;
+            width: 75vw;
+        }
+
+
+        
+
+
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 9.8vh;
+        
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 10;
+            font-size: 3vw;
+            font-family: 'Montserrat';
+            font-weight: 600;
+            backdrop-filter: blur(4px); 
+        }
+        a {
+            text-decoration: none;
+        }
+        .et-hero-tab {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1;
+            color: #67645E;
+            margin-top: 4vh;
+            
+        }
+        .mainimg{
+
+            position: absolute;
+            height: 4vh;
+            margin-top: -7vh;
+            
+        }
+    </style>
+    
+</head>
+
+<body>
+    <br>
+    <div class="subscription">
+        <div class="subscription1" onclick="location.href='#'">
+            <a>4900</a>
+        </div>
+        <div class="subscription0" onclick="location.href='#'">
+            <a>оформить подписку</a>
+        </div>
+    </div>
+
+    <div class="search_block">
+        <a>
+            <input type="" id="name" name="name"  placeholder="Куда пойдем?" />
+        </a>
+    </div>
+    
+    <div class="filters_card">
+        <div class="filterblock">
+            <button class="filters" id="#" >Творчество без границ</button>
+            <button class="filters" id="#" >Для детей</button>
+
+        </div>  
+    </div>    
+
+    <div class="content">
+        <div class="studiocard" onclick="location.href='#'">
+            <img  class="studioimg" src="images/studio.jpg" />
+            <a class="studioname">Reshape</a>
+            <p class="studioadress">Ул. Ломоносова, 181, офис 24</p>
+        </div>
+
+       
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <div class="footer">
+        
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/main2.png" >Главная</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/studio2.png" >Студии</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/ticket2.png" >Абонемент</a>
+        <a class="et-hero-tab" href="#"><img class="mainimg" src="images/categories/profile2.png" >Профиль</a>
+    </div>
+</body>
+
+
+
+
+
+<script>
+
+</script>
+</html>
