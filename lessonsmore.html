@@ -319,6 +319,65 @@
                 text-decoration: none;
                 cursor: pointer;
             }
+
+
+
+            /* тут немного стилей для модального окна когда все места заняты */
+            .modalbronetxt{
+                width: 89.7vw;
+                text-align: center;
+                font-family: Montserrat;
+                font-size: 7vw;
+                color: #1D1C1A;
+            }
+
+            .modalbronetxt2{
+                margin-top: 1.5vh;
+                width: 89.7vw;
+                text-align: center;
+                font-family: Montserrat;
+                font-size: 4vw;
+                color: #67645E;
+
+            }
+            .lessonsmoreconfirmbrone{
+                position: fixed;
+                
+                bottom: 15vh;
+                width: 89.7vw;
+                z-index: 999;
+                padding: 2vw 0vh;
+                align-items: center;
+                
+                background-color: #D9674F;
+                color: #ffffff;
+                border-radius: 50vw;
+                border: none;
+                font-size: 5vw;
+                font-family: Montserrat;
+            }
+            .lessonsmoreconfirmtxtbrone{
+                display: flex;
+                justify-items: center;
+                text-align: center;
+                align-items: center;
+                font-weight: 400;
+                
+
+            }
+            .closeBrone {
+                margin-left: -50vw;
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
     </style>
     
 </head>
@@ -406,13 +465,15 @@
     </div>
     <div class="container">
         <!-- кнопка когда места свободны -->
-        <button class="containerlessonsmoreconfirm" id="myBtn">
+        <button class="containerlessonsmoreconfirm" id="myBtn" style="display: none;">
             <div class="containerlessonsmoreconfirmtxt">ЗАБРОНИРОВАТЬ</div>
         </button>
+
         <!-- кнопка когда все места заняты -->
-        <button class="containerlessonsmoreconfirm" id="myBtnBrone">
+        <button class="containerlessonsmoreconfirm" id="BronemyBtn" style="display: flex;">
             <div class="containerlessonsmoreconfirmtxt">ЗАБРОНИРОВАТЬ</div>
         </button>
+
     </div>
     
     <div class="footer">
@@ -425,29 +486,22 @@
     <div id="myModal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close">×</span>
-            
-
             <div class="lessonsmore">
                 <div>
                     <div class="lessonsmorename">Балет(Классика)</div>
                     <div class="lessonsmorestudio">La Perla Mind&amp;Body</div>
                 </div>
             </div>
-
             <div class="aboutlesson">
                 <div class="leftplace">
                     15/35
                     <a style="font-size: 5vw;">Мест доступно</a>
                 </div>
-
                 <div class="rightplace">
                     <div style="display:flex;font-size: 5vw;">31 Мая</div>
                     с 09:00 - до 10:00
-                
-                
                 </div>
             </div>
-
             <button class="lessonsmoreconfirm" id="myBtn" style="bottom: 13vh;">
                 <div class="lessonsmoreconfirmtxt">Забронировать</div>
                 <div class="lessonsmoreconfirmpoints">15 баллов<p></p></div>
@@ -455,35 +509,20 @@
         </div>
     </div>
 
-    <div id="myModalBrone" class="modal" style="display: none;">
+    
+    <!-- модалка когда все места заняты -->
+    <div id="BronemyModal" class="modal" style="display: none;">
         <div class="modal-content">
-            <span class="close">×</span>
-            
-
+            <span class="closeBrone">×</span>
             <div class="lessonsmore">
                 <div>
-                    <div class="lessonsmorename">Балет(Классика)</div>
-                    <div class="lessonsmorestudio">La Perla Mind&amp;Body</div>
+                    <div class="modalbronetxt">Упс, кажется места закончились :(</div>
+                    <div class="modalbronetxt2">Но мы можем уведомить вас, когда<br>  запись снова станет доступна</div>
                 </div>
             </div>
-
-            <div class="aboutlesson">
-                <div class="leftplace">
-                    15/35
-                    <a style="font-size: 5vw;">Мест доступно</a>
-                </div>
-
-                <div class="rightplace">
-                    <div style="display:flex;font-size: 5vw;">31 Мая</div>
-                    с 09:00 - до 10:00
-                
-                
-                </div>
-            </div>
-
-            <button class="lessonsmoreconfirm" id="myBtn" style="bottom: 13vh;">
-                <div class="lessonsmoreconfirmtxt">Забронировать</div>
-                
+            <button class="lessonsmoreconfirmbrone" id="BronemyBtn" style="bottom: 13vh;">
+                <!-- <div class="lessonsmoreconfirmtxtbrone">Уведомить</div> -->
+                Уведомить
             </button>
         </div>
     </div>
@@ -494,32 +533,40 @@
 
 
     <script>
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
-        
-        btn.onclick = function() {
-        modal.style.display = "block";
-        }
-        
-        span.onclick = function() {
-        modal.style.display = "none";
-        }
-        
-        window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-        }
-
-        function toggleImage(element) {
-        const img = element.querySelector('img');
-        if (img.src.includes('favoritefalse.png')) {
-            img.src = 'images/favorite.png'; // Укажите путь к другому изображению
-        } else {
-            img.src = 'images/favoritefalse.png'; // Возврат к исходному изображению
+        var myModal = document.getElementById("myModal");
+    var myBtn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    
+    myBtn.onclick = function() {
+        myModal.style.display = "block";
+    }
+    
+    span.onclick = function() {
+        myModal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == myModal) {
+            myModal.style.display = "none";
         }
     }
 
+    var bronemyModal = document.getElementById("BronemyModal");
+    var bronemyBtn = document.getElementById("BronemyBtn");
+    var spanBrone = document.getElementsByClassName("closeBrone")[0];
+    
+    bronemyBtn.onclick = function() {
+        bronemyModal.style.display = "flex";
+    }
+    
+    spanBrone.onclick = function() {
+        bronemyModal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == bronemyModal) {
+            bronemyModal.style.display = "none";
+        }
+    }
     </script>
 </html>
