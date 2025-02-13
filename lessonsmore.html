@@ -308,6 +308,7 @@
                 
             }
             .close {
+                position: relative;
                 color: #aaa;
                 float: right;
                 font-size: 28px;
@@ -366,11 +367,13 @@
 
             }
             .closeBrone {
+                position: relative;
                 margin-left: -50vw;
                 color: #aaa;
                 float: right;
                 font-size: 28px;
                 font-weight: bold;
+                z-index: 999;
             }
             .close:hover,
             .close:focus {
@@ -378,6 +381,35 @@
                 text-decoration: none;
                 cursor: pointer;
             }
+            .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 0.1vh solid #1D1C1A;
+            border-radius: 200vh;
+        }
+        .button {
+            font-weight: 600;
+            padding: 0.75vh;
+            color: #1D1C1A;
+            border: none;
+            border-radius: 200vh;
+            cursor: pointer;
+            width: 30px;
+            text-align: center;
+            font-size: 3vh;
+        }
+        .input {
+            border: none;
+            border-radius: 1vh;
+            width: 40px;
+            height: 4.4vh;
+            text-align: center;
+            
+            margin: 0 5px;
+            font-size: 2.5vh;
+            font-family: Montserrat;
+            font-weight: 400;
+        }
     </style>
     
 </head>
@@ -502,14 +534,30 @@
                     с 09:00 - до 10:00
                 </div>
             </div>
-            <button class="lessonsmoreconfirm" id="myBtn" style="bottom: 13vh;">
+
+            <div class="aboutlesson">
+                <div class="leftplace">
+                    <div class="quantity-selector">
+                        <div class="button" id="decrease">-</div>
+                        <input type="number" id="quantity" class="input" value="1" min="1" max="5" readonly>
+                        <div class="button" id="increase">+</div>
+                    </div> 
+                </div>
+    
+                <div class="rightplace">
+                    <div class="lessonsmoreconfirmpointsmodal" id="totalPoints">Баллов: 15</div>
+                    
+                
+                </div>
+            </div>
+            <button class="lessonsmoreconfirm" id="myBtn" style="bottom: 7vh;">
                 <div class="lessonsmoreconfirmtxt">Забронировать</div>
                 <div class="lessonsmoreconfirmpoints">15 баллов<p></p></div>
             </button>
         </div>
     </div>
 
-    
+
     <!-- модалка когда все места заняты -->
     <div id="BronemyModal" class="modal" style="display: none;">
         <div class="modal-content">
@@ -533,10 +581,11 @@
 
 
     <script>
-        var myModal = document.getElementById("myModal");
+        // Работа с первым модальным окном
+    var myModal = document.getElementById("myModal");
     var myBtn = document.getElementById("myBtn");
-    var span = document.getElementsByClassName("close")[0];
-    
+    var span = document.getElementsByClassName("close")[0];  // Закрытие первого модального окна
+
     myBtn.onclick = function() {
         myModal.style.display = "block";
     }
@@ -551,10 +600,11 @@
         }
     }
 
+    // Работа со вторым модальным окном
     var bronemyModal = document.getElementById("BronemyModal");
     var bronemyBtn = document.getElementById("BronemyBtn");
-    var spanBrone = document.getElementsByClassName("closeBrone")[0];
-    
+    var spanBrone = document.getElementsByClassName("closeBrone")[0];  // Закрытие второго модального окна
+
     bronemyBtn.onclick = function() {
         bronemyModal.style.display = "flex";
     }
@@ -568,5 +618,40 @@
             bronemyModal.style.display = "none";
         }
     }
+
+
+    const quantityInput = document.getElementById('quantity');
+        const increaseButton = document.getElementById('increase');
+        const decreaseButton = document.getElementById('decrease');
+        const pointsDisplay = document.querySelector('.lessonsmoreconfirmpointsmodal');
+        const totalPointsDisplay = document.getElementById('totalPoints');
+
+        const pointsPerItem = 150; // Количество баллов за занятие тут указано
+
+        function updateTotalPoints() {
+            const quantity = parseInt(quantityInput.value);
+            const totalPoints = pointsPerItem * quantity;
+            totalPointsDisplay.textContent = `Баллов: ${totalPoints}`;
+        }
+
+        increaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < 5) {
+                quantityInput.value = currentValue + 1;
+                updateTotalPoints();
+            }
+        });
+
+        decreaseButton.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+                updateTotalPoints();
+            }
+        });
+
+        // Инициализация отображения баллов
+        updateTotalPoints();
+
     </script>
 </html>
