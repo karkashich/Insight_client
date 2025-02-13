@@ -136,24 +136,24 @@
             font-size: 5vw;
             color: #1D1C1A;   
         }
-
-        
         .lessonsmoreconfirm{
-            position: fixed;
-            display: flex;
-            bottom: 15vh;
-            width: 89.7vw;
-            z-index: 999;
-            padding: 2vw 0vh;
-            align-items: center;
-            text-align: center;
-            background-color: #D9674F;
-            color: #ffffff;
-            border-radius: 50vw;
-            border: none;
-            font-size: 5vw;
-            font-family: Montserrat;
-        }
+                position: fixed;
+                display: flex;
+                bottom: 20vh;
+                width: 89.7vw;
+                z-index: 999;
+                padding: 2vw 0vh;
+                align-items: center;
+                text-align: center;
+                background-color: #D9674F;
+                color: #ffffff;
+                border-radius: 50vw;
+                border: none;
+                font-size: 5vw;
+                font-family: Montserrat;
+            }
+        
+        
         .lessonsmoreconfirmtxt{
             display: flex;
             text-align: center;
@@ -322,7 +322,56 @@
             }
 
 
-
+            /* новый стиль для кнопок купить абонементом и сразу */
+            .buttonslessonblock{
+                position: fixed;
+                display: flex;
+                bottom: 25vh;
+                width: 90vw;
+                z-index: 999;
+                padding: 2.5vw 0vh;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+            
+                color: #ffffff;
+                border-radius: 50vw;
+                border: none;
+                font-size: 5vw;
+                font-family: Montserrat;
+            }
+            .lessonsmoreconfirm1{
+                position: fixed;
+                display: flex;
+                bottom: 20vh;
+                width: 89.7vw;
+                z-index: 999;
+                padding: 2vw 0vh;
+                align-items: center;
+                text-align: center;
+                background-color: #D9674F;
+                color: #ffffff;
+                border-radius: 50vw;
+                border: none;
+                font-size: 5vw;
+                font-family: Montserrat;
+            }
+            .lessonsmoreconfirm2{
+                position: fixed;
+                display: flex;
+                bottom: 14vh;
+                width: 89.7vw;
+                z-index: 999;
+                padding: 2vw 0vh;
+                align-items: center;
+                text-align: center;
+                background-color: #D9674F;
+                color: #ffffff;
+                border-radius: 50vw;
+                border: none;
+                font-size: 5vw;
+                font-family: Montserrat;
+            }
             /* тут немного стилей для модального окна когда все места заняты */
             .modalbronetxt{
                 width: 89.7vw;
@@ -492,17 +541,29 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        
         
             
     </div>
     <div class="container">
-        <!-- кнопка когда места свободны -->
-        <button class="containerlessonsmoreconfirm" id="myBtn" style="display: none;">
-            <div class="containerlessonsmoreconfirmtxt">ЗАБРОНИРОВАТЬ</div>
-        </button>
+<!-- блок кнопок оплаты абонементом или картой  !!!свойство display должно быть flex не block!!!-->
+        <div class="buttonslessonblock" style="display: flex;">
+            <button class="lessonsmoreconfirm1" id="myBtn1">
+                <div class="lessonsmoreconfirmtxt">Абонементом</div>
+                <div class="lessonsmoreconfirmpoints">150 баллов</div>
+            </button>
+        
+            <button class="lessonsmoreconfirm2" id="myBtn2">
+                <div class="lessonsmoreconfirmtxt">Купить сразу</div>
+                <div class="lessonsmoreconfirmpoints">150 ₽</div>
+            </button>
+        </div>
+    
 
         <!-- кнопка когда все места заняты -->
-        <button class="containerlessonsmoreconfirm" id="BronemyBtn" style="display: flex;">
+        <button class="containerlessonsmoreconfirm" id="BronemyBtn" style="display: none;">
             <div class="containerlessonsmoreconfirmtxt">ЗАБРОНИРОВАТЬ</div>
         </button>
 
@@ -515,7 +576,7 @@
         <a class="et-hero-tab" href="#"><img class="mainimg" src="../images/categories/profile2.png" >Профиль</a>
     </div>
 
-    <div id="myModal" class="modal" style="display: none;">
+    <div id="myModal" class="modal myModal" style="display: none;">
         <div class="modal-content">
             <span class="close">×</span>
             <div class="lessonsmore">
@@ -582,40 +643,53 @@
 
     <script>
         // Работа с первым модальным окном
-    var myModal = document.getElementById("myModal");
-    var myBtn = document.getElementById("myBtn");
-    var span = document.getElementsByClassName("close")[0];  // Закрытие первого модального окна
+    var myModal = document.getElementsByClassName("myModal")[0];
+    var btn1 = document.getElementsByClassName("lessonsmoreconfirm1")[0]; // Первая кнопка
+    var btn2 = document.getElementsByClassName("lessonsmoreconfirm2")[0]; // Вторая кнопка
+    var span = document.getElementsByClassName("close")[0]; // Кнопка закрытия
 
-    myBtn.onclick = function() {
-        myModal.style.display = "block";
+    // Обработчик для первой кнопки
+    btn1.onclick = function() {
+        myModal.style.display = "block"; // Показываем модальное окно
     }
-    
+
+    // Обработчик для второй кнопки
+    btn2.onclick = function() {
+        myModal.style.display = "block"; // Показываем модальное окно
+    }
+
+    // Закрытие модального окна
     span.onclick = function() {
-        myModal.style.display = "none";
+        myModal.style.display = "none"; // Закрываем модальное окно при нажатии на "X"
     }
-    
+
+    // Закрытие модального окна при клике вне него
     window.onclick = function(event) {
         if (event.target == myModal) {
             myModal.style.display = "none";
         }
     }
 
+    
+    
+
     // Работа со вторым модальным окном
-    var bronemyModal = document.getElementById("BronemyModal");
-    var bronemyBtn = document.getElementById("BronemyBtn");
+    var bronemyModal = document.getElementById("BronemyModal"); // исправлено
+    var bronemyBtn = document.getElementById("BronemyBtn"); // исправлено
     var spanBrone = document.getElementsByClassName("closeBrone")[0];  // Закрытие второго модального окна
 
+    // Обработчик для кнопки второго модального окна
     bronemyBtn.onclick = function() {
-        bronemyModal.style.display = "flex";
+        bronemyModal.style.display = "flex"; // Открытие второго модального окна
     }
     
     spanBrone.onclick = function() {
-        bronemyModal.style.display = "none";
+        bronemyModal.style.display = "none"; // Закрытие второго модального окна
     }
     
     window.onclick = function(event) {
         if (event.target == bronemyModal) {
-            bronemyModal.style.display = "none";
+            bronemyModal.style.display = "none"; // Закрытие второго модального окна
         }
     }
 
