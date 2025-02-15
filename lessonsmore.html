@@ -355,6 +355,7 @@
                 border: none;
                 font-size: 5vw;
                 font-family: Montserrat;
+                box-shadow: 1vw 1vh 4vw #67645E;
             }
             .lessonsmoreconfirm2{
                 position: fixed;
@@ -371,6 +372,7 @@
                 border: none;
                 font-size: 5vw;
                 font-family: Montserrat;
+                box-shadow: 1vw 1vh 4vw #67645E;
             }
             /* тут немного стилей для модального окна когда все места заняты */
             .modalbronetxt{
@@ -382,7 +384,7 @@
             }
 
             .modalbronetxt2{
-                margin-top: 1.5vh;
+                margin-top: 3vh;
                 width: 89.7vw;
                 text-align: center;
                 font-family: Montserrat;
@@ -526,9 +528,6 @@
             <div class="lessonsmoreconfirmtxt">Забронировать</div>
             <div class="lessonsmoreconfirmpoints">15000 баллов</p></div>
         </button> -->
-        
-            
-        
         <br>
         <br>
         <br>
@@ -549,7 +548,7 @@
     </div>
     <div class="container">
 <!-- блок кнопок оплаты абонементом или картой  !!!свойство display должно быть flex не block!!!-->
-        <div class="buttonslessonblock" style="display: flex;">
+        <div class="buttonslessonblock" style="display: none;">
             <button class="lessonsmoreconfirm1" id="myBtn1">
                 <div class="lessonsmoreconfirmtxt">Абонементом</div>
                 <div class="lessonsmoreconfirmpoints">150 баллов</div>
@@ -563,7 +562,7 @@
     
 
         <!-- кнопка когда все места заняты -->
-        <button class="containerlessonsmoreconfirm" id="BronemyBtn" style="display: none;">
+        <button class="containerlessonsmoreconfirm" id="BronemyBtn" style="display: flex;">
             <div class="containerlessonsmoreconfirmtxt">ЗАБРОНИРОВАТЬ</div>
         </button>
 
